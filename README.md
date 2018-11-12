@@ -13,6 +13,7 @@ npx vampire-markdown-printer mdFiles [--outputDir dir] [--base resourceBase]
 //TODOs:
 
 + [ ] Customize scss and section color
++ [ ] Detect title as html title
 + [X] Compile scss to CSS
 + [X] Markdown, Options, HTML
 + [X] Compile javascript by babel

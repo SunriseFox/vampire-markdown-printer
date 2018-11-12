@@ -5,11 +5,14 @@ const { R_OK } = fs
 const path = require('path')
 const hljs = require('highlight.js');
 const vm = require('vm');
-const { JSDOM } = require("jsdom");
+const { JSDOM } = require('jsdom');
 const MarkdownIt = require('markdown-it');
 const container = require('markdown-it-container');
 const sass = require('sass');
 const babel = require('@babel/core');
+
+const sr = p =>
+  path.join(__dirname, p)
 
 const encoding = 'utf8'
 
@@ -45,7 +48,7 @@ if (yargs.output) {
     fs.mkdirSync(yargs.outputDir, {recursive: true, mode: 0o666})
   const dir = yargs.outputDir
   outputs = inputs.map((i) => {
-    return path.join(dir || path.dirname(i), path.basename(i, '.md') + ".html")
+    return path.join(dir || path.dirname(i), path.basename(i, '.md') + '.html')
   })
 }
 if (inputs.length !== outputs.length)
@@ -97,13 +100,13 @@ for (let i = 0; i < inputs.length; i++) {
     (async () => {
       const file = fs.readFileSync(inputs[i], {encoding});
       const markdown = md.render(file).trim();
-      const style = sass.renderSync({file: './stylesheets/index.scss'}).css.toString('utf8');
+      const style = sass.renderSync({file: sr('./stylesheets/index.scss')}).css.toString('utf8');
       let script = '';
-      const dir = fs.readdirSync('./scripts/');
+      const dir = fs.readdirSync(sr('./scripts/'));
       for (const i of dir) {
-        script += babel.transformFileSync('./scripts/' + i).code + '\n'
+        script += babel.transformFileSync(sr(path.join('./scripts/', i))).code + '\n'
       }
-      const template = fs.readFileSync("./template.html", {encoding});
+      const template = fs.readFileSync(sr('./template.html'), {encoding});
       const title = 'Vampire Markdown';
       const sandbox = vm.createContext({title, markdown, style, script})
       vm.runInContext('result = ' + 'String.raw`' + template.replace(/`/g, '${\'`\'}') + '`', sandbox);
@@ -132,8 +135,7 @@ for (let i = 0; i < inputs.length; i++) {
   )
 }
 
-Promise.all(promises).then(() => {
-
-}).catch(e => {
+Promise.all(promises).catch(e => {
+  console.error(e)
   process.exit(1)
 })
