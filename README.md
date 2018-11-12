@@ -28,3 +28,4 @@ npx vampire-markdown-printer mdFiles [--outputDir dir] [--base resourceBase]
 + [ ] uglify CSS and scripts
 + [ ] Test extend markdown features
 + [ ] Convert markdown online to HTML
++ [ ] Make a Visual Studio Code / Atom plugin
