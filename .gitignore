@@ -1,0 +1,4 @@
+/.idea/
+/node_modules/
+.markdownrc.js
+package-lock.json

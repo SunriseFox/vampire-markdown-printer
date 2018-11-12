@@ -1,0 +1,37 @@
+{
+  "name": "vampire-markdown-printer",
+  "version": "0.0.1",
+  "description": "Convert markdown to HTML the beautiful way",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "highlight.js": "^9.13.1",
+    "jsdom": "^13.0.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-container": "^2.0.0",
+    "mime": "^2.3.1",
+    "sass": "^1.14.3",
+    "yargs": "^12.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vampire-rip/vampire-markdown-printer.git"
+  },
+  "keywords": [
+    "markdown",
+    "html"
+  ],
+  "author": "SunriseFox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vampire-rip/vampire-markdown-printer/issues"
+  },
+  "homepage": "https://github.com/vampire-rip/vampire-markdown-printer#readme",
+  "browserslist": [
+    "> 1%"
+  ]
+}
