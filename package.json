@@ -1,8 +1,9 @@
 {
   "name": "vampire-markdown-printer",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Convert markdown to HTML the beautiful way",
   "main": "index.js",
+  "bin" : "./index.js",
   "dependencies": {
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
